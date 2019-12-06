@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Syllables break for Shan language</title>
+    <style>
+        * {
+            transition: all ease 0.5s;
+        }
+
+        body {
+            font-family: Yunghkio, Myanmar3, PangLong, 'Masterpiece Uni Sans';
+            background: #f2f6fc;
+            font-size: 1.1em;
+        }
+
+        .center-box {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 1px 10px #eaf0fc;
+        }
+
+        button.btn {
+            padding: 10px 40px;
+            border-radius: 40px;
+            background: #02c071;
+            color: #fff;
+            border: 1px solid #05995b;
+        }
+
+        button.btn:hover {
+            background: #05995b;
+            cursor: pointer;
+        }
+
+
+        div.res {
+            margin: 20px 0 20px;
+        }
+
+        textarea {
+            font-size: 1.1em;
+            width: 100%;
+            margin: 20px 0 20px;
+            height: 150px;
+            line-height: 40px;
+            border: 1px solid #ddd;
+        }
+
+        button.btn:focus,
+        textarea:focus {
+            outline: none;
+            box-shadow: none;
+            border: 1px solid #02c071;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center-box">
+            <p>Syllables Break For Shan Language</p>
+            <textarea class="str">ၸၢမ်းတူၺ်းတူဝ်လိၵ်ႈ</textarea>
+            <button class="btn test">Test</button>
+            <div class="res"></div>
+        </div>
+    </div>
+    <script>
+        document.querySelector(".test").addEventListener("click", e => {
+            const str = document.querySelector(".str");
+            let val = str.value;
+
+            const tones = '\u1087|\u1088|\u1038|\u1089|\u108A';
+            const ngaPyet = '\u103A';
+            const ayeSai = '\u1031|\u1084';
+            const ar = '\u1083';
+            const kaikurn = '\u1086';
+            const tarngkakyan = '\u102E';
+
+            const toneReg = new RegExp(`[${tones}]`, 'gmi');
+            const frontReg = new RegExp(`[${ngaPyet}|${kaikurn}|${ar}|${tarngkakyan}]+[^${tones}]`, 'gmi');
+            const backReg = new RegExp(`[${ayeSai}]+[^${tones}|${ar}]`, 'gmi');
+
+
+            // Add space behind every tones
+            if (val.match(toneReg)) {
+                val = val.replace(toneReg, (matched) => {
+                    return matched + " ";
+                });
+            }
+
+            // Add space between between matched words
+            function splitMatch(pattern) {
+                if (!val.match(pattern)) { return }
+                val = val.replace(pattern, (matched) => {
+                    return matched.split("")[0] + " " + matched.split("")[1];
+                });
+            }
+
+            splitMatch(frontReg);
+            splitMatch(backReg);
+
+            document.querySelector(".res").innerHTML = val;
+        })
+    </script>
+</body>
+
+</html>
