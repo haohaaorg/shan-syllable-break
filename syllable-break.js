@@ -29,10 +29,19 @@ document.querySelector(".test").addEventListener("click", e => {
             return matched.split("")[0] + " " + matched.split("")[1];
         });
     }
+
+    // Add space between single consonants except consonant followed by -်
+    function splitJoin(pattern) {
+        if (!val.match(pattern)) { return }
+        val = val.replace(pattern, (matched) => {
+            matched = matched.substr(0,matched.length-1);
+            return matched.split("").join(" ");
+        });
+    }
     
     splitMatch(frontReg);
     splitMatch(backReg);
-    splitMatch(singleReg);
+    splitJoin(singleReg);
 
 
     document.querySelector(".res").innerHTML = val;
