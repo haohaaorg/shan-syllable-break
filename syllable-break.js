@@ -34,8 +34,9 @@ document.querySelector(".test").addEventListener("click", e => {
     function splitJoin(pattern) {
         if (!val.match(pattern)) { return }
         val = val.replace(pattern, (matched) => {
-            matched = matched.substr(0,matched.length-1);
-            return matched.split("").join(" ");
+            const lastChar = matched.split('').pop();
+            const allCon = matched.substr(0,matched.length-1);
+            return allCon.split("").join(" ")+lastChar;
         });
     }
     
