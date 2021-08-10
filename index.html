@@ -79,7 +79,7 @@
             e.preventDefault();
             const str = new FormData(ssbForm).get('input_str');
             const ssb = new SSB();
-            const result = ssb.tokenize(str);
+            const result = ssb.string(str);
             document.querySelector('.input_str').value = result;
         })
     </script>

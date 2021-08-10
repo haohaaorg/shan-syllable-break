@@ -59,12 +59,21 @@ class SSB {
     }
 
     tokenize(text) {
+        if(!text){
+            console.error('Please provide input text!'); return;
+        }
         this.text = text;
         this.addSpaceBehindTones();
         this.splitMatch(this.frontReg);
         this.splitMatch(this.backReg);
         this.titSongJoin(this.titsReg);
         this.consonantJoin(this.singleReg);
-        return this.text;
+        let tokenArray = this.text.split(" ");
+        return tokenArray.filter(String);
+    }
+
+    string(text){
+        let str = this.tokenize(text)
+        return str?str.join(" ").trim():'';
     }
 }
