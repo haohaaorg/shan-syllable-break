@@ -1,3 +1,7 @@
+/**
+ SHAN syllable break js for Shan language development.
+ organization: kwarm
+ */
 class SSB {
 
     constructor() {
@@ -19,9 +23,9 @@ class SSB {
 
     }
 
+    // Add space behind every tones
     addSpaceBehindTones() {
 
-        // Add space behind every tones
         if (this.text.match(this.toneReg)) {
             this.text = this.text.replace(this.toneReg, (matched) => {
                 return matched + " ";
@@ -58,6 +62,7 @@ class SSB {
         });
     }
 
+    // init and tokenize
     tokenize(text) {
         if(!text){
             console.error('Please provide input text!'); return;
@@ -72,8 +77,9 @@ class SSB {
         return tokenArray.filter(String);
     }
 
+    // call tokenize func and join the array
     string(text){
-        let str = this.tokenize(text)
-        return str?str.join(" ").trim():'';
+        let tokens = this.tokenize(text)
+        return tokens?tokens.join(" "):'';
     }
 }
