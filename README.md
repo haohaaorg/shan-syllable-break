@@ -18,7 +18,7 @@ https://cdn.jsdelivr.net/gh/kwarm/shan-syllable-break@master/dist/ssb.min.js
 
 ```javascript
 
-const sbb = new SSB() // shan syllable break class
+const ssb = new SSB() // shan syllable break class
 const result = ssb.string('ၶိူင်ႈၸႅၵ်ႇၽေတူဝ်လိၵ်ႈတႆးပဵၼ်တူဝ်ပဵၼ်တူဝ်ၼႆႉလႆႈၸႂ်ႉဝႆႉ JS');
 console.log(result)
 
