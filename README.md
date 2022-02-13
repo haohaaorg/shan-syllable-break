@@ -11,7 +11,7 @@ Syllable break for Shan scripts using JS.
 ## CDN
 
 ```
-https://cdn.jsdelivr.net/gh/kwarm/shan-syllable-break@master/dist/ssb.min.js
+https://cdn.jsdelivr.net/gh/haohaaorg/shan-syllable-break@master/dist/ssb.min.js
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ console.log(result)
 ## CDN
 
 ```
-https://cdn.jsdelivr.net/gh/kwarm/shan-syllable-break@master/dist/ssb.min.js
+https://cdn.jsdelivr.net/gh/haohaaorg/shan-syllable-break@master/dist/ssb.min.js
 ```
 
 ## လၢႆးၸႂ်ႉတိုဝ်း
