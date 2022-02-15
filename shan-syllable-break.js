@@ -1,6 +1,7 @@
 /**
  SHAN syllable break js for Shan language development.
- organization: kwarm
+ organization: haohaaorg
+ version: 0.1
  */
 class SSB {
 
