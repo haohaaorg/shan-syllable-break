@@ -37,7 +37,7 @@ class SSB {
 
     // Add space between matched words
     splitMatch(pattern) {
-        if (!this.text.match(pattern)) { return }
+        if (!this.text.match(pattern)) return;
         this.text = this.text.replace(pattern, (matched) => {
             return matched.split("")[0] + " " + matched.split("")[1];
         });
@@ -45,7 +45,7 @@ class SSB {
 
     // Add space between titSong
     titSongJoin(pattern) {
-        if (!this.text.match(pattern)) { return }
+        if (!this.text.match(pattern)) return;
         this.text = this.text.replace(pattern, (matched) => {
             const lastWords = matched.substr(2);
             const firstTwo = matched.substr(0, 2);
@@ -55,7 +55,7 @@ class SSB {
 
     // Add space between single consonants except consonant followed by -်
     consonantJoin(pattern) {
-        if (!this.text.match(pattern)) { return }
+        if (!this.text.match(pattern)) return;
         this.text = this.text.replace(pattern, (matched) => {
             const lastChar = matched.split('').pop();
             const allCon = matched.substr(0, matched.length - 1);
